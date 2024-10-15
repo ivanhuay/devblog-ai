@@ -72,7 +72,7 @@ Docker will build and run the following services:
 ### 5. Open the Application
 
 Once the services are up and running, navigate to \`http://localhost:3000\` in your browser to access the Devblog AI application.
-
+![alt text](image.png)
 ## Usage
 
 1. **Create a Note**: On the main page, click the "Create Note" button to input your raw notes.
