@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  # API Service
+  api:
+    build:
+      context: ./devblog-ia-api
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+    env_file:
+      - ./devblog-ia-api/.env 
+    depends_on:
+      - mongodb
+    networks:
+      - devblog-network
+
+  # UI (Next.js) Service
+  ui:
+    build:
+      context: ./devblog-ia-ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./devblog-ia-ui/.env
+    depends_on:
+      - api
+    networks:
+      - devblog-network
+
+  # MongoDB Service
+  mongodb:
+    image: mongo:6.0
+    container_name: devblog-mongo
+    environment:
+      MONGO_INITDB_DATABASE: devblog
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - devblog-network
+
+networks:
+  devblog-network:
+    driver: bridge
+
+volumes:
+  mongodb-data:
+
