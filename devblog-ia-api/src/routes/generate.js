@@ -66,7 +66,7 @@ router.post('/generate-social/:noteId', async(req, res) => {
     if(!currentNote) {
         return res.status(404).json({error: 'Note not foun!'});
     } else if (currentNote.content && currentNote.blogPost) {
-        const content = generate(getSocialTemplate(`Title: ${currentNote.title} \n\n Blog Post Content: \n\n` + currentNote.content));
+        const content = await generate(getSocialTemplate(`Title: ${currentNote.title} \n\n Blog Post Content: \n\n` + currentNote.content));
         console.log('content: ', content);
         currentNote.blogPost = content;
         await currentNote.save();
