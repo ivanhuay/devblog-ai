@@ -52,6 +52,20 @@ The API will be available at `http://localhost:YOUR_PORT` (replace YOUR_PORT wit
 
 (Add brief documentation about your main API endpoints here)
 
+## Env variables
+You can custom the model or the service using the env variables. Right now it support only chatgpt and the anthropic service.
+´´´
+PORT=4001
+DB_URL=mongodb
+DB_PORT=27017
+DB_NAME=devblog
+CHATGPT_API_KEY=gpt-4o
+CHATGPT_MODEL=
+ANTHROPIC_API_KEY=
+ANTHROPIC_MODEL=claude-3-5-sonnet-20240620
+AI_SERVICE=ANTHROPIC # or CHATGPT
+´´´
+
 ## Next Steps
 
 - [ ] Add comprehensive test suite
@@ -59,7 +73,7 @@ The API will be available at `http://localhost:YOUR_PORT` (replace YOUR_PORT wit
 - [ ] Standardize error output for better debugging
 - [ ] Enhance security measures
 - [ ] Optimize database queries for better performance
-- [ ] Add anthropic API integration option using env variables.
+- [ ] Use some param to generate with different serives and store all the results.
 
 ## Contributing
 

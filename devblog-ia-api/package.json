@@ -1,6 +1,6 @@
 {
   "name": "devblog-ia-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "API for devblog-ia proyect.",
   "main": "srcapp.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "author": "ivanhuay@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.29.0",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "express": "^4.21.1",
