@@ -11,9 +11,7 @@ const getTemplate = require('../utils/getTemplate');
 const getSocialTemplate = require('../utils/getSocialTemplate');
 const Notes = require('../models/notes');
 
-// const CHATGPT_MODEL = 'gpt-4o'; //'gpt-4o-mini';
-
-console.log('using model: ', CHATGPT_MODEL);
+console.log('using model: ', {CHATGPT_MODEL, ANTHROPIC_MODEL});
 const client = new OpenAI({
     apiKey: CHATGPT_API_KEY
 });
@@ -25,11 +23,6 @@ const anthropic = new Anthropic({
 
 const generate = async(promt) => {
     if(AI_SERVICE === 'ANTHROPIC') {
-        // const completion = await anthropic.completions.create({
-        //     model: ANTHROPIC_MODEL,
-        //     max_tokens_to_sample: 300,
-        //     prompt: '\n\nHuman:' + promt + ' \n\nAssistant:'
-        // });
         const msg = await anthropic.messages.create({
             model: ANTHROPIC_MODEL,
             max_tokens: 1024,
